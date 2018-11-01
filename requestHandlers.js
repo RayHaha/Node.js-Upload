@@ -37,7 +37,7 @@ function upload(response, request){
 		var writeStream = fs.createWriteStream("/nodejs/workspace/tmp/test.png"); // destination path
 		readStream.pipe(writeStream);
 		readStream.on('end', function(){
-			fs.unlinkSync(files.upload.path);
+			fs.unlink(files.upload.path);
 		});
 
 		response.writeHead(200, {"Content-Type": "text/html"});
